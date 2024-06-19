@@ -21,14 +21,14 @@ public interface ApplicationRecordRepository extends JpaRepository<ApplicationRe
                                                                        Pageable pageable);
 
    @Query(value = "SELECT * FROM application_records WHERE animal_id = :animalId " +
-           "AND application_id = :applicationId ORDER BY start_date DESC LIMIT 1",
+           "AND application_id = :applicationId ORDER BY application_date DESC LIMIT 1",
            nativeQuery = true)
    Optional<ApplicationRecord> findLastByAnimalIdAndApplicationId(@Param("animalId") Long animalId,
                                                               @Param("applicationId") Long applicationId);
 
     @Query(value = "SELECT * from application_records WHERE animal_id = :animalId AND application_id IN " +
             "(SELECT id FROM applications WHERE application_type_id = :applicationTypeId) " +
-            "ORDER BY start_date DESC LIMIT 1",
+            "ORDER BY application_date DESC LIMIT 1",
             nativeQuery = true)
     Optional<ApplicationRecord> findLastByAnimalIdAndApplicationTypeId(@Param("animalId") Long animalId,
                                                                    @Param("applicationTypeId") Long applicationTypeId);
