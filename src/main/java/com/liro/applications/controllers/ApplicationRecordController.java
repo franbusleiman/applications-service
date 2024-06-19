@@ -28,13 +28,13 @@ public class ApplicationRecordController {
 
     @GetMapping(value = "/{applicationRecordId}", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<ApplicationRecordResponse> getApplicationRecord(@PathVariable("applicationRecordId") Long applicationRecordId,
-                                                                      String token) {
+                                                                          @RequestHeader(name = "Authorization", required = false) String token) {
         return ResponseEntity.ok(applicationRecordService.findById(applicationRecordId, token));
     }
 
     @GetMapping(value = "/getAll", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Page<ApplicationRecordResponse>> getAllByAnimalId(@RequestParam("animalId") Long animalId,
-                                                                          String token,
+                                                                            @RequestHeader(name = "Authorization", required = false) String token,
                                                                           Pageable pageable) {
         return ResponseEntity.ok(applicationRecordService.findAllByAnimalId(animalId, pageable, token));
     }
@@ -43,7 +43,7 @@ public class ApplicationRecordController {
     @GetMapping(value = "/getAllByAnimalIdAndApplicationId", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Page<ApplicationRecordResponse>> getAllByAnimalIdAndApplicationId(@RequestParam("animalId") Long animalId,
                                                                                         @RequestParam("applicationId") Long applicationId,
-                                                                                        String token,
+                                                                                            @RequestHeader(name = "Authorization", required = false) String token,
                                                                                         Pageable pageable) {
         return ResponseEntity.ok(applicationRecordService
                 .findAllByAnimalIdAndApplicationId(animalId, applicationId, pageable, token));
@@ -52,7 +52,7 @@ public class ApplicationRecordController {
     @GetMapping(value = "/getAllByAnimalIdAndApplicationTypeId", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Page<ApplicationRecordResponse>> getAllByAnimalIdAndApplicationTypeId(@RequestParam("animalId") Long animalId,
                                                                                             @RequestParam("applicationTypeId") Long applicationTypeId,
-                                                                                            String token,
+                                                                                                @RequestHeader(name = "Authorization", required = false) String token,
                                                                                             Pageable pageable) {
         return ResponseEntity.ok(applicationRecordService
                 .findAllByAnimalIdAndApplicationTypeId(animalId, applicationTypeId, pageable, token));
@@ -61,14 +61,14 @@ public class ApplicationRecordController {
     @GetMapping(value = "/getLastByAnimalIdAndApplicationId", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<ApplicationRecordResponse> getLastByAnimalIdAndApplicationId(@RequestParam("animalId") Long animalId,
                                                                                    @RequestParam("applicationId") Long applicationId,
-                                                                                   String token) {
+                                                                                       @RequestHeader(name = "Authorization", required = false) String token) {
         return ResponseEntity.ok(applicationRecordService.findLastByAnimalIdAndApplicationId(animalId, applicationId, token));
     }
 
     @GetMapping(value = "/getLastByAnimalIdAndApplicationTypeId", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<ApplicationRecordResponse> getLastByAnimalIdAndApplicationTypeId(@RequestParam("animalId") Long animalId,
                                                                                        @RequestParam("applicationId") Long applicationTypeId,
-                                                                                       String token) {
+                                                                                           @RequestHeader(name = "Authorization", required = false) String token) {
         return ResponseEntity.ok(applicationRecordService.findLastByAnimalIdAndApplicationTypeId(animalId, applicationTypeId, token));
     }
 
@@ -89,7 +89,7 @@ public class ApplicationRecordController {
 
     @DeleteMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Void> deleteApplicationRecord(@RequestParam("applicationRecordId") Long applicationRecordId,
-                                                      String token) {
+                                                        @RequestHeader(name = "Authorization", required = false) String token) {
         applicationRecordService.deleteApplicationRecord(applicationRecordId, token);
 
         return ResponseEntity.ok().build();
