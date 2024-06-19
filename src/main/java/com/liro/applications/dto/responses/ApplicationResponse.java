@@ -16,10 +16,6 @@ public class ApplicationResponse {
     private Long id;
     private String name;
     private String formalName;
-    private Integer durationInDays;
-    private Integer dayBetweenCycles;
-    private Boolean cyclic;
-    private boolean permanent;
     private String details;
     private Long applicationTypeId;
 
