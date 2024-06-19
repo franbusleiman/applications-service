@@ -6,8 +6,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "applications",
-        indexes = @Index(name = "by_age_index",  columnList="byAge"))
+@Table(name = "applications")
 @Getter
 @Setter
 @NoArgsConstructor
