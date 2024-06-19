@@ -25,6 +25,4 @@ public class ApplicationType {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "applicationType")
     private Set<Application> applications;
-
-
 }

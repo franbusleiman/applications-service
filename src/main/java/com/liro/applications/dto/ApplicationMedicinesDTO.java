@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Getter
 @Setter
-public class ApplicationMedicationDTO {
+public class ApplicationMedicinesDTO {
     private Long medicineId;
     private Long quantity;
     private String quantityType;

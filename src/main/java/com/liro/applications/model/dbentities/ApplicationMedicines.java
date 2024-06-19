@@ -5,15 +5,14 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "actions_medicines",
+@Table(name = "application_medicines",
         indexes = @Index(name = "medicine_index",  columnList="medicineId"))
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode(exclude = "application")
-public class ActionsMedicines{
+public class ApplicationMedicines {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +26,6 @@ public class ActionsMedicines{
 
     @OneToOne(fetch = FetchType.LAZY,
             cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "application_id")
-    private Application application;
+    @JoinColumn(name = "application_record_id")
+    private ApplicationRecord applicationRecord;
 }

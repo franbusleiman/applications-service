@@ -12,7 +12,6 @@ public interface ApplicationMapper {
     @Mapping(target = "applicationTypeId", source = "applicationType.id")
     ApplicationResponse applicationToApplicationResponse(Application application);
 
-    @Mapping(target = "actions", ignore = true)
     @Mapping(target = "applicationRecords", ignore = true)
     Application applicationDtoToApplication(ApplicationDTO applicationDTO);
 }

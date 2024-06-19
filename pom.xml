@@ -11,10 +11,10 @@
 	</parent>
 
 	<groupId>com.liro</groupId>
-	<artifactId>treatments-service</artifactId>
+	<artifactId>applications-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>treatments-service</name>
-	<description>Treatments Service for LIRO</description>
+	<name>applications-service</name>
+	<description>Applications Service for LIRO</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -131,7 +131,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.liro.treatments.TreatmentsServiceApplication</mainClass>
+					<mainClass>com.liro.applications.ApplicationsServiceApplication</mainClass>
 					<layout>JAR</layout>
 				</configuration>
 			</plugin>

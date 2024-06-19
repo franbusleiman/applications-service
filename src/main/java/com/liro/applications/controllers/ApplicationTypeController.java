@@ -1,6 +1,6 @@
 package com.liro.applications.controllers;
 
-import com.liro.applications.dto.ApiResponse;
+import com.liro.applications.dto.responses.ApiResponse;
 import com.liro.applications.dto.ApplicationTypeDTO;
 import com.liro.applications.dto.responses.ApplicationTypeResponse;
 import com.liro.applications.service.ApplicationTypeService;

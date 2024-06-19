@@ -1,4 +1,4 @@
-package com.liro.applications.dto;
+package com.liro.applications.dto.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

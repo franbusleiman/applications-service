@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Set;
 
 @Entity
 @Table(name = "application_records")
@@ -24,20 +23,17 @@ public class ApplicationRecord {
     private LocalDate applicationDate;
     private LocalDate endDate;
     private Long animalId;
-    private Long consultationId;
     private Long vetProfileId;
-    
     private boolean valid;
 
     @OneToOne(fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
-            mappedBy = "action")
-    private ActionsMedicines actionsMedicines;
+            mappedBy = "applicationRecord")
+    private ApplicationMedicines applicationMedicines;
 
 
     @ManyToOne(fetch = FetchType.LAZY,
             cascade = CascadeType.PERSIST)
     @JoinColumn(name = "application_id")
     private Application application;
-
 }

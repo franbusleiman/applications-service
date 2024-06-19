@@ -15,5 +15,4 @@ public class ApplicationTypeDTO {
 
     private String typeName;
     private String details;
-
 }

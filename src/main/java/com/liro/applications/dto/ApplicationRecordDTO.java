@@ -15,20 +15,12 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class ApplicationRecordDTO {
-    private Integer daysBetweenFollowups;
     private String details;
-
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate startDate;
+    private LocalDate applicationDate;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate endDate;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate nextAppointment;
-
-    private Integer priorityNumber;
-    private Integer actualCycle;
+    private ApplicationMedicinesDTO applicationMedicines;
     private Long animalId;
     private Long applicationId;
-    private Long consultationId;
-
 }

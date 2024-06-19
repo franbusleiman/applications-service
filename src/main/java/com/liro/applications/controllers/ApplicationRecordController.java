@@ -1,6 +1,6 @@
 package com.liro.applications.controllers;
 
-import com.liro.applications.dto.ApiResponse;
+import com.liro.applications.dto.responses.ApiResponse;
 import com.liro.applications.dto.ApplicationRecordDTO;
 import com.liro.applications.dto.responses.ApplicationRecordResponse;
 import com.liro.applications.service.ApplicationRecordService;

@@ -22,12 +22,7 @@ public class Application {
 
     private String name;
     private String formalName;
-    private Integer durationInDays;
-    private Integer dayBetweenCycles;
-    private Boolean cyclic;
-    private boolean permanent;
     private String details;
-
 
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
@@ -36,5 +31,4 @@ public class Application {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "application")
     private Set<ApplicationRecord> applicationRecords;
-
 }

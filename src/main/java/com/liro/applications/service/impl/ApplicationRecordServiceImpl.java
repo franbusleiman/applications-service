@@ -100,14 +100,17 @@ public class ApplicationRecordServiceImpl implements ApplicationRecordService {
 
         ApplicationRecord applicationRecord = applicationRecordMapper.applicationRecordDtoToApplicationRecord(applicationRecordDTO);
 
+
         Application application = applicationRepository.findById(applicationRecordDTO.getApplicationId())
                 .orElseThrow(() -> new ResourceNotFoundException("Application not found with id: "
                         + applicationRecordDTO.getApplicationId()));
 
         applicationRecord.setApplication(application);
 
+        if (applicationRecord.getApplicationMedicines() != null) applicationRecord.getApplicationMedicines().setApplicationRecord(applicationRecord);
+
         UserDTO userDTO =  getUser(token);
-//        // TODO: Change to call the vet validation endpoint to be created in the userService
+
         if (userDTO.getRoles().contains("VET")) {
             applicationRecord.setValid(true);
             applicationRecord.setVetProfileId(userDTO.getId());

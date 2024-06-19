@@ -15,11 +15,6 @@ public class ApplicationDTO {
 
     private String name;
     private String formalName;
-    private Integer durationInDays;
-    private Integer dayBetweenCycles;
     private Long applicationTypeId;
-    private Boolean cyclic;
-    private boolean permanent;
     private String details;
-
 }

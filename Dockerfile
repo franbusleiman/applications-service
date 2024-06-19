@@ -13,4 +13,4 @@ RUN ./mvnw dependency:go-offline
 COPY ./src ./src
 
 RUN ./mvnw clean package
-CMD ["java", "-jar", "./target/treatments-service-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "./target/applications-service-0.0.1-SNAPSHOT.jar"]
