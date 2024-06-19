@@ -74,7 +74,7 @@ public class ApplicationRecordController {
 
     @PostMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<ApiResponse> createApplicationRecord(@Valid @RequestBody ApplicationRecordDTO applicationRecordDto,
-                                                             @RequestHeader(name = "Authorization") String token) {
+                                                             @RequestHeader(name = "Authorization", required = false) String token) {
         ApplicationRecordResponse applicationRecordResponse = applicationRecordService.createApplicationRecord(applicationRecordDto, token);
 
         URI location = ServletUriComponentsBuilder
