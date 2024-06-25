@@ -12,7 +12,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode(exclude = {"application"})
 public class ApplicationRecord {
 
     @Id
@@ -31,9 +30,7 @@ public class ApplicationRecord {
             mappedBy = "applicationRecord")
     private ApplicationMedicines applicationMedicines;
 
-
-    @ManyToOne(fetch = FetchType.LAZY,
-            cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "application_id")
-    private Application application;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "application_type_id")
+    private ApplicationType applicationType;
 }

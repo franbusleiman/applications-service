@@ -22,5 +22,6 @@ public class ApplicationRecordDTO {
     private LocalDate endDate;
     private ApplicationMedicinesDTO applicationMedicines;
     private Long animalId;
-    private Long applicationId;
+    private Long applicationTypeId;
+
 }

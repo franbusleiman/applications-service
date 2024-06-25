@@ -6,10 +6,10 @@ import com.liro.applications.dto.UserDTO;
 import com.liro.applications.dto.mappers.ApplicationRecordMapper;
 import com.liro.applications.dto.responses.ApplicationRecordResponse;
 import com.liro.applications.exceptions.ResourceNotFoundException;
-import com.liro.applications.model.dbentities.Application;
 import com.liro.applications.model.dbentities.ApplicationRecord;
+import com.liro.applications.model.dbentities.ApplicationType;
 import com.liro.applications.repositories.ApplicationRecordRepository;
-import com.liro.applications.repositories.ApplicationRepository;
+import com.liro.applications.repositories.ApplicationTypeRepository;
 import com.liro.applications.service.ApplicationRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,18 +22,19 @@ import static com.liro.applications.utils.Util.getUser;
 public class ApplicationRecordServiceImpl implements ApplicationRecordService {
 
     private final ApplicationRecordRepository applicationRecordRepository;
-    private final ApplicationRepository applicationRepository;
+    private final ApplicationTypeRepository applicationTypeRepository;
+
     private final ApplicationRecordMapper applicationRecordMapper;
 
     private final FeignAnimalClient feignAnimalClient;
 
     @Autowired
     public ApplicationRecordServiceImpl(ApplicationRecordRepository applicationRecordRepository,
-                                      ApplicationRepository applicationRepository,
+                                      ApplicationTypeRepository applicationTypeRepository,
                                       ApplicationRecordMapper applicationRecordMapper,
                                       FeignAnimalClient feignAnimalClient) {
         this.applicationRecordRepository = applicationRecordRepository;
-        this.applicationRepository = applicationRepository;
+        this.applicationTypeRepository = applicationTypeRepository;
         this.applicationRecordMapper = applicationRecordMapper;
         this.feignAnimalClient = feignAnimalClient;
     }
@@ -101,11 +102,11 @@ public class ApplicationRecordServiceImpl implements ApplicationRecordService {
         ApplicationRecord applicationRecord = applicationRecordMapper.applicationRecordDtoToApplicationRecord(applicationRecordDTO);
 
 
-        Application application = applicationRepository.findById(applicationRecordDTO.getApplicationId())
-                .orElseThrow(() -> new ResourceNotFoundException("Application not found with id: "
-                        + applicationRecordDTO.getApplicationId()));
+        ApplicationType applicationType = applicationTypeRepository.findById(applicationRecordDTO.getApplicationTypeId())
+                .orElseThrow(() -> new ResourceNotFoundException("Application Type not found with id: "
+                        + applicationRecordDTO.getApplicationTypeId()));
 
-        applicationRecord.setApplication(application);
+        applicationRecord.setApplicationType(applicationType);
 
         if (applicationRecord.getApplicationMedicines() != null) applicationRecord.getApplicationMedicines().setApplicationRecord(applicationRecord);
 

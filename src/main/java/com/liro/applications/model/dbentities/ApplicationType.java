@@ -12,7 +12,6 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode(exclude = "applications")
 public class ApplicationType {
 
     @Id
@@ -22,7 +21,4 @@ public class ApplicationType {
     private String typeName;
     private String details;
 
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "applicationType")
-    private Set<Application> applications;
 }
